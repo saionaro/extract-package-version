@@ -1,0 +1,6 @@
+pre-commit:
+  commands:
+    build:
+      run: npm run build
+    add:
+      run: git add dist
