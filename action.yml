@@ -1,0 +1,12 @@
+name: Extract Package Version
+description: Extract Package Version for npm packages.
+author: "Saionaro"
+runs:
+  using: "node12"
+  main: "dist/index.js"
+branding:
+  icon: alert-circle
+  color: green
+outputs:
+  version:
+    description: "The version of current npm package"
