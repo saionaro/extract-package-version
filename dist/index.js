@@ -370,15 +370,15 @@ async function run() {
   try {
     const packagePath = path.join(workspace, "package.json");
 
-    console.log(packagePath);
+    core.debug(packagePath);
 
     const pkg = require(packagePath);
 
-    console.log(pkg);
+    core.debug(pkg);
 
     const version = pkg.version.toString();
 
-    console.log(version);
+    core.debug(version);
 
     core.setOutput("version", version);
   } catch (error) {
