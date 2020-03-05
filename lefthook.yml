@@ -1,6 +1,4 @@
 pre-commit:
   commands:
     build:
-      run: npm run build
-    add:
-      run: git add dist
+      run: npm run build && git add dist

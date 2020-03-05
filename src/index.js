@@ -9,8 +9,6 @@ async function run() {
     const pkg = require(packagePath);
     const version = pkg.version.toString();
 
-    console.log("1");
-
     core.setOutput("version", version);
   } catch (error) {
     core.setFailed(error.message);
