@@ -50,6 +50,39 @@ module.exports = require("os");
 
 /***/ }),
 
+/***/ 311:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+const core = __webpack_require__(470);
+const path = __webpack_require__(622);
+
+const workspace = process.env.GITHUB_WORKSPACE;
+
+async function run() {
+  try {
+    const packagePath = path.join(workspace, "package.json");
+
+    core.debug(packagePath);
+
+    const pkg = require(packagePath);
+
+    core.debug(pkg);
+
+    const version = pkg.version.toString();
+
+    core.debug(version);
+
+    core.setOutput("version", version);
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+}
+
+module.exports = run;
+
+
+/***/ }),
+
 /***/ 431:
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
@@ -359,34 +392,13 @@ module.exports = require("path");
 /***/ }),
 
 /***/ 676:
-/***/ (function(module, __unusedexports, __webpack_require__) {
+/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-const core = __webpack_require__(470);
-const path = __webpack_require__(622);
+const run = __webpack_require__(311);
 
-const workspace = process.env.GITHUB_WORKSPACE;
-
-async function run() {
-  try {
-    const packagePath = path.join(workspace, "package.json");
-
-    core.debug(packagePath);
-
-    const pkg = require(packagePath);
-
-    core.debug(pkg);
-
-    const version = pkg.version.toString();
-
-    core.debug(version);
-
-    core.setOutput("version", version);
-  } catch (error) {
-    core.setFailed(error.message);
-  }
+if (require.main === require.cache[eval('__filename')]) {
+  run();
 }
-
-module.exports = run;
 
 
 /***/ })
