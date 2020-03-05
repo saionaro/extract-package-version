@@ -3,7 +3,7 @@ description: Extract Package Version for npm packages.
 author: "Saionaro"
 runs:
   using: "node12"
-  main: "dist/index.js"
+  main: "index.js"
 branding:
   icon: alert-circle
   color: green
