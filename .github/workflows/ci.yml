@@ -22,30 +22,18 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Setup Node.JS
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
       - name: Install deps
-        run: npm install
+        run: npm ci
 
       - name: Disable Lefthook
         run: echo "::set-env name=LEFTHOOK::0"
 
-      - name: "Automated Version Bump"
-        uses: "phips28/gh-action-bump-version@v5.0.18"
-        with:
-          tag-prefix: ""
+      - name: Release
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Extract version
-        id: extract_version
-        uses: Saionaro/extract-package-version@v1.0.6
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.extract_version.outputs.version }}
-          release_name: Release ${{ steps.extract_version.outputs.version }}
-          draft: false
-          prerelease: false
