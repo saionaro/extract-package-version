@@ -4,7 +4,8 @@
   "description": "Allows you to get the npm version of the package in your Github Actions workflow",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build src/index.js"
+    "build": "ncc build src/index.js",
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,8 @@
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.1",
-    "@zeit/ncc": "^0.21.1"
+    "@zeit/ncc": "^0.21.1",
+    "@semantic-release/git": "^9.0.0",
+    "semantic-release": "^17.0.4"
   }
 }
