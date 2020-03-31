@@ -5,7 +5,10 @@ const workspace = process.env.GITHUB_WORKSPACE;
 
 async function run() {
   try {
-    const packagePath = path.join(workspace, "package.json");
+    let dir = core.getInput("path") || workspace;
+    dir = path.resolve(dir);
+
+    const packagePath = path.join(dir, "package.json");
     const pkg = require(packagePath);
     const version = pkg.version.toString();
 

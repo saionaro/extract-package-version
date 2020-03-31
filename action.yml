@@ -1,6 +1,9 @@
 name: Extract Package Version
 description: Extract Package Version for npm packages.
 author: "Saionaro"
+inputs:
+  path:
+    description: 'The directory where package.json can be found (defaults to root of repo)'
 runs:
   using: "node12"
   main: "dist/index.js"
