@@ -1,6 +1,6 @@
 {
   "name": "extract-package-version",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Allows you to get the npm version of the package in your Github Actions workflow",
   "main": "index.js",
   "scripts": {
