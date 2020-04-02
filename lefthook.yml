@@ -1,3 +1,8 @@
+commit-msg:
+  commands:
+    lint:
+      run: commitlint -e
+
 pre-commit:
   commands:
     build:
