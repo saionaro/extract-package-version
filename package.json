@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Saionaro/extract-package-version#readme",
   "dependencies": {
-    "@actions/core": "^1.2.3"
+    "@actions/core": "^1.2.6"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.1",
