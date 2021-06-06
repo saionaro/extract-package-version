@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Disable Lefthook
-        run: echo "::set-env name=LEFTHOOK::0"
+        run: echo "LEFTHOOK=0" >> $GITHUB_ENV
 
       - name: Release
         run: npm run release
