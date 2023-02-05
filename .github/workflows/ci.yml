@@ -8,10 +8,10 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         env:
           cache-name: cache-node-modules
         with:
@@ -23,9 +23,9 @@ jobs:
             ${{ runner.os }}-
 
       - name: Setup Node.JS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: "12.x"
+          node-version: "18.x"
 
       - name: Install deps
         run: npm ci

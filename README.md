@@ -29,7 +29,7 @@ jobs:
 
       - name: Extract version
         id: extract_version
-        uses: Saionaro/extract-package-version@v1.0.6
+        uses: Saionaro/extract-package-version@v1.1.1
       # From now you can access the version
       - name: Print version
         run: echo ${{ steps.extract_version.outputs.version }}
