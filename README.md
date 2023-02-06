@@ -35,7 +35,7 @@ jobs:
         run: echo ${{ steps.extract_version.outputs.version }}
 ```
 
-### Example workflow - get NPM version of subdirectory
+### Example workflow - get NPM version of subdirectory (useful in monorepos)
 
 ```yaml
 on: push
