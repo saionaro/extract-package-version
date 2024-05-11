@@ -24,15 +24,12 @@ jobs:
     name: Create Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
+      - uses: actions/checkout@v4
 
-      - name: Extract version
-        id: extract_version
-        uses: Saionaro/extract-package-version@v1.2.1
-      # From now you can access the version
-      - name: Print version
-        run: echo ${{ steps.extract_version.outputs.version }}
+      - uses: saionaro/extract-package-version@v1.2.1
+        id: package_ver
+      # from now you can access the version
+      - run: echo ${{ steps.package_ver.outputs.version }}
 ```
 
 ### Example workflow - get NPM version of subdirectory (useful in monorepos)
@@ -47,15 +44,12 @@ jobs:
     name: Create Build
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@master
+      - uses: actions/checkout@v4
 
-      - name: Extract version
-        id: extract_version
-        uses: Saionaro/extract-package-version@v1.2.1
+      - uses: saionaro/extract-package-version@v1.2.1
+        id: package_ver
         with:
           path: mysubdir
-      # From now you can access the version
-      - name: Print version
-        run: echo ${{ steps.extract_version.outputs.version }}
+      # from now you can access the version
+      - run: echo ${{ steps.package_ver.outputs.version }}
 ```
