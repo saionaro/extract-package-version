@@ -1,0 +1,36 @@
+name: Test
+
+on: [push]
+
+env:
+  EXPECTED: "3.14.16"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      - run: mkdir ./test_1
+      - run: |
+          echo '{"version": "${{ env.EXPECTED }}"}' > ./test_1/package.json
+      - name: Test 1
+        id: package_ver
+        uses: ./
+        with:
+          path: ./test_1
+
+      - name: Check results
+        uses: actions/github-script@v7
+        env:
+          RECEIVED: ${{ steps.package_ver.outputs.version }}
+        with:
+          script: |
+            const { EXPECTED, RECEIVED } = process.env;
+            if (RECEIVED !== RECEIVED)
+              core.setFailed(`Expected [${EXPECTED}], but got [${RECEIVED}]`)
