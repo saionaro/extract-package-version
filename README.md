@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: saionaro/extract-package-version@v1.2.1
+      - uses: saionaro/extract-package-version@v1.3.0
         id: package_ver
       # from now you can access the version
       - run: echo ${{ steps.package_ver.outputs.version }}
@@ -46,7 +46,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: saionaro/extract-package-version@v1.2.1
+      - uses: saionaro/extract-package-version@v1.3.0
         id: package_ver
         with:
           path: mysubdir
