@@ -6,7 +6,7 @@ env:
   EXPECTED: "3.14.16"
 
 jobs:
-  release:
+  test:
     runs-on: ubuntu-latest
 
     steps:
