@@ -1,9 +1,0 @@
-commit-msg:
-  commands:
-    lint:
-      run: ./node_modules/.bin/commitlint -e
-
-pre-commit:
-  commands:
-    build:
-      run: npm run build && git add dist
