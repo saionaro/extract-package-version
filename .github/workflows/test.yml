@@ -15,7 +15,9 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Read root package version
-        run: echo "EXPECTED_ROOT=$(node -p \"require('./package.json').version\")" >> "$GITHUB_ENV"
+        run: |
+          expected_root=$(node -p 'require("./package.json").version')
+          echo "EXPECTED_ROOT=$expected_root" >> "$GITHUB_ENV"
 
       - run: mkdir ./test_1
 
